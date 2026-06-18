@@ -135,7 +135,7 @@ youtube-verifier/
 | Role not being given      | Bot role hierarchy + Manage Roles permission  |
 | OCR not detecting         | Try higher quality screenshot or edit keywords in `verifyService.js` |
 | Commands not showing      | Restart bot or re-invite with proper scopes   |
-
+| Still not workin.         | Join our discord server so we can check the problem or issue.
 ---
 
 ## 📜 License
