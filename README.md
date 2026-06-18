@@ -144,3 +144,4 @@ MIT — feel free to use and modify.
 Enjoy! 🎉
 
 If you need any changes (multiple channels, better detection, web dashboard, etc.), just tell me!
+[Join discord](https://discord.gg/jJwrnJAEu9)
