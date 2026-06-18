@@ -1,12 +1,9 @@
-
 # 🎥 YouTube Verification Bot (Components V2)
 
 A clean, modern Discord bot that verifies YouTube subscriptions using **screenshot OCR**.  
 Built with Discord.js v14 + **Components V2** for beautiful rich messages.
 
 > Originally adapted from the GitHub-verifier concept, now fully converted to YouTube + modern UI components.
-
-[Discord Server](https://discord.gg/jJwrnJAEu9)
 
 ---
 
@@ -93,13 +90,82 @@ All bot replies now use the new **Discord Components V2** system:
 
 ## 🛠️ Customization
 
-Want to make detection stricter or support multiple channels?
+### ✨ Adding Custom Emojis
 
-Edit **`services/verifyService.js`** — you can easily:
-- Add more keywords
-- Change OCR language
+You can easily replace the default emojis with **custom server emojis** or different Unicode emojis.
+
+#### 1. Quick way (recommended)
+When calling the message helpers, just pass a custom `title`:
+
+```js
+// In events/messageCreate.js or commands/setup.js
+const successMessage = createSuccessMessage({
+  title: '🎉 Verification Successful!',           // ← change emoji here
+  description: `...`,
+  thumbnail: message.author.displayAvatarURL(),
+  footer: 'Welcome! <a:party:123456789>'         // animated emoji example
+});
+```
+
+#### 2. Change default emojis globally
+Edit **`utils/components.js`** and replace the default emojis in the functions:
+
+```js
+// Success (green)
+title = '✅ Verification Successful!',
+
+// Error (red)
+title = '❌ Verification Failed',
+
+// Info (blurple)
+title = 'ℹ️ Information',
+
+// Warning (orange)
+title = '⚠️ Warning',
+```
+
+**How to use custom Discord emojis:**
+- Right-click your custom emoji → Copy Emoji
+- Paste it directly: `🎉` or `<:customname:123456789012345678>`
+- For animated: `<a:animatedname:123456789012345678>`
+
+#### 3. Other places with emojis
+You can also change these in `events/messageCreate.js`:
+- Loading reaction: `await message.react('🔄');`
+- Error replies: `'❌ An error occurred...'`
+
+---
+
+### 🔧 Tweaking the Code (Advanced Customization)
+
+#### Change YouTube Detection Logic
+Edit **`services/verifyService.js`** — this is the brain of the verifier:
+
+- Add/remove keywords for "subscribed"
+- Change OCR language (`eng` by default)
+- Adjust image preprocessing (contrast, sharpness)
 - Add color detection for the red "Subscribed" button
-- Adjust confidence thresholds
+- Make it stricter or more lenient
+
+#### Change Success / Error Messages
+All user-facing text lives in:
+- `events/messageCreate.js` → success & failure replies
+- `commands/setup.js` → setup confirmation
+- `utils/components.js` → default titles & structure
+
+#### Add More Features
+- Multiple YouTube channels → edit config + verifyService
+- Logging to a channel → add in messageCreate.js after verification
+- Web dashboard → possible with express + discord.js
+- Different roles per channel → extend the config system
+
+#### Pro Tips
+- Always test changes with your own screenshot first
+- Use `console.log()` heavily while debugging OCR
+- Restart the bot after editing (or use nodemon for auto-restart)
+- Keep your token safe — never commit `.env`
+
+Want something specific customized? Just tell me and I can update the code for you!
 
 ---
 
@@ -135,23 +201,8 @@ youtube-verifier/
 | Role not being given      | Bot role hierarchy + Manage Roles permission  |
 | OCR not detecting         | Try higher quality screenshot or edit keywords in `verifyService.js` |
 | Commands not showing      | Restart bot or re-invite with proper scopes   |
-| Still not working.         | Join our discord server so we can check the problem or issue.
----
 
 ---
-
-## 🛠️ Custom emoji
-youtube-verifier/
-|── commands/
-|── events/
-|── handlers/
-|── services/
-|── utils/
-|── emoji.js (New folder)
-
----
-
-
 
 ## 📜 License
 
@@ -163,4 +214,4 @@ MIT — feel free to use and modify.
 
 Enjoy! 🎉
 
-If you need any changes (multiple channels, better detection, web dashboard, etc.), just tell me! 
+If you need any changes (multiple channels, better detection, web dashboard, etc.), just tell me!
