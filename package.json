@@ -1,0 +1,24 @@
+{
+  "name": "youtube-verifier",
+  "version": "1.0.0",
+  "description": "Discord bot for YouTube subscription verification via screenshot OCR with Components V2 support.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "discord",
+    "youtube",
+    "verification",
+    "tesseract",
+    "ocr",
+    "components-v2"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.26.4",
+    "dotenv": "^16.5.0",
+    "jimp": "^1.6.1",
+    "tesseract.js": "^6.0.1"
+  }
+}
