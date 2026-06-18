@@ -1,10 +1,11 @@
--# Ddeveloper
+
 # 🎥 YouTube Verification Bot (Components V2)
 
 A clean, modern Discord bot that verifies YouTube subscriptions using **screenshot OCR**.  
 Built with Discord.js v14 + **Components V2** for beautiful rich messages.
 
 > Originally adapted from the GitHub-verifier concept, now fully converted to YouTube + modern UI components.
+
 [Discord Server](https://discord.gg/jJwrnJAEu9)
 
 ---
