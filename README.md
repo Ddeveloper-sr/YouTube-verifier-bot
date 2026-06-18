@@ -5,6 +5,8 @@ Built with Discord.js v14 + **Components V2** for beautiful rich messages.
 
 > Originally adapted from the GitHub-verifier concept, now fully converted to YouTube + modern UI components.
 
+[Join Discord](https://discord.gg/jJwrnJAEu9)
+
 ---
 
 ## ✨ Features
